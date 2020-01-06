@@ -3,9 +3,10 @@
 const Project = use('App/Models/Project')
 
 class ProjectController {
-  async index ({ response }) {
+  async index ({ response, request }) {
     try {
-      const projects = await Project.query().with('user').fetch()
+      const { page } = request.get()
+      const projects = await Project.query().with('user').paginate(page)
       return projects
     } catch (e) {
       response.status(e.status).send({ error: 'Server error!' })
