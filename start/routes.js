@@ -20,7 +20,6 @@ Route.group(() => {
         ['projects.store'], ['Project']
       ]
       // Other validation
-      // parei aq
     ])
   )
   Route.resource('projects.tasks', 'TaskController').apiOnly().validator(new Map(
@@ -29,7 +28,6 @@ Route.group(() => {
         ['projects.tasks.store'], ['Task']
       ]
       // Other validation
-      // parei aq
     ])
   )
 }).middleware(['auth'])
